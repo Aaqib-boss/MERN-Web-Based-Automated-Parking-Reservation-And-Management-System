@@ -19,7 +19,9 @@ const allowedOrigins = [
   'http://localhost:5174',
   'http://localhost:5175',
   'https://mern-web-based-automated-parking-re.vercel.app',
-  'https://mern-web-based-automated-parking-reservation-and-dyg9xcucz.vercel.app'
+  'https://mern-web-based-automated-parking-reservation-and-dyg9xcucz.vercel.app',
+  'https://mern-web-based-automated-parking-re-eight.vercel.app',
+  'https://mern-web-based-automated-parking-and-jyx2fi8in.vercel.app'
 ];
 
 const corsOptions = {
@@ -74,10 +76,8 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/footer', footerRoutes);
 app.use('/api/pricing', pricingRoutes);
 
-// Temporary seed route
 app.get('/api/seed', async (req, res) => {
   try {
-    const mongoose = require('mongoose');
     const User = require('./models/User');
     const ParkingSpot = require('./models/ParkingSpot');
     const Booking = require('./models/Booking');
