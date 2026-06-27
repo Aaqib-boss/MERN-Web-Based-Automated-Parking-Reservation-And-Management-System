@@ -1,3 +1,59 @@
+# ParkSmart - Premium IoT Smart Parking Solution
+
+ParkSmart is a premium, real-time, IoT-enabled parking reservation and management platform designed to streamline parking slot allocation, pricing customizations, and administrative operations across multiple geographic branches.
+
+---
+
+## 🌐 Live Demo
+
+| Portal | URL |
+|---|---|
+| **Customer Portal** | [mern-web-based-automated-parking-re.vercel.app](https://mern-web-based-automated-parking-re.vercel.app) |
+| **Operations Admin** | [mern-web-based-automated-parking-re-eight.vercel.app](https://mern-web-based-automated-parking-re-eight.vercel.app) |
+| **Super Admin** | [parking-super-admin.vercel.app](https://parking-super-admin.vercel.app) |
+| **Backend API** | [parking-system-backend-amgk.onrender.com](https://parking-system-backend-amgk.onrender.com) |
+
+---
+
+## 🔐 Demo Login Credentials
+
+| Role | Email | Password |
+|---|---|---|
+| **Super Admin** | `super@parking.com` | `password123` |
+| **Operations Admin** | `ops@parking.com` | `password123` |
+| **Customer** | `john@gmail.com` | `password123` |
+
+---
+
+## 🌟 Key Features
+
+### 1. Per-Branch Isolation & Dynamic Scaling
+- **Independent Capacity Grids**: Automatically spawns 60 default floor slots (Ground, 1st, 2nd floors) for any brand-new branch on the fly.
+- **Per-Branch Analytics**: Track revenue metrics, occupancy rates, and transaction trends separately for every branch.
+- **Compound Database Constraints**: Compound unique indexes `{ spotNumber: 1, branch: 1 }` enable identical slot identifiers (e.g. `G-01`) to coexist across branches.
+
+### 2. Interactive Location Maps & Contacts
+- **Branch Customizations**: Super Admins can customize separate physical addresses, phone numbers, emails, and Google Maps embed/share links for each branch.
+- **Collapsible Live Previews**: Users on the Parking Map can toggle a collapsible branch details card to preview specific location details and interactive Google Maps iframes.
+- **Dynamic Footer Selector**: Clicking on any branch under "Our Branches" in the footer instantly updates the address, email, phone, and embedded map location dynamically.
+
+### 3. Real-Time Status Broadcasts
+- **IoT-Sensor Sync**: Socket.io integration pushes instant updates to all clients when a slot status toggles (Available, Occupied, Reserved).
+- **Automated Pricing Calculations**: Fetches and applies branch-specific hourly rate models (Base, 2 Hour, 4 Hour, and Full Day rates) at booking checkout.
+
+---
+
+## 📂 Project Architecture
+smart-parking/
+
+├── server/             # Express server, MongoDB schemas, seeder, socket logic
+
+├── client-user/        # Customer booking portal (http://localhost:5173/)
+
+├── client-ops/         # Operations Admin dashboard (http://localhost:5174/)
+
+└── client-super/       # Super Admin settings & user panel (http://localhost:5175/)
+
 ### Tech Stack
 - **Backend**: Node.js, Express, MongoDB (Mongoose ODM), Socket.io (WebSockets)
 - **Frontends**: React (Vite), Axios, Recharts (Analytical Charts), Lucide Icons, Vanilla CSS
